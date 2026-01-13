@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduEx</title>
+    <link rel="stylesheet" href="css/Index.css">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+</head>
+<body>
+  <header>
+      <nav>
+        <div class="logo">
+            <span style="color: white;">Edu</span>
+            <span style="color: #f7ac1b;">Ex</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="auth-buttons">
+            <button onclick="openModal()" class="login-btn">Log In</button>
+            <button onclick="openModal2()" class="signup-btn">Sign Up</button>
+        </div>
+        <div class="menu-toggle">☰</div>
+    </nav>
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <h2>Login</h2>
+          <input type="text" class="input-field" placeholder="Full Name">
+          <input type="email" class="input-field" placeholder="Email">
+          <input type="password" class="input-field" placeholder="Password">
+          <a href="Profile.html"><button class="btn">Join for Free</button></a>
+          
+          <p style="text-align: center;">or</p>
+          <div class="social-login">
+              <button onclick="openModal3()"><img src="assets/official-Google-Logo-PNG-Image.png" height="20px" style="padding-left: 41px; padding-right: 5px;">Continue with Google</button>
+              <button onclick="openModal4()"><img src="assets/pngegg (2).png" height="23px"width="23px" style="padding-left: 40px; padding-right: 4px;">Continue with Facebook</button>
+              <button onclick="openModal5()"><img src="assets\Apple.png" height="20px" style="padding-left: 40px; padding-right: 5px;">Continue with Apple</button>
+          </div>
+      </div>
+    </div>
+    <div id="loginModal2" class="modal">
+      <div class="modal-content">
+          <span class="close" onclick="closeModal2()">&times;</span>
+          <h2>Sign Up</h2>
+          <input type="text" class="input-field" placeholder="Full Name">
+          <input type="email" class="input-field" placeholder="Email">
+          <input type="password" class="input-field" placeholder="Password">
+          <a href="Profile.html"><button class="btn">Join for Free</button></a>
+          
+          <p style="text-align: center;">or</p>
+          <div class="social-login">
+              <button onclick="openModal3()"><img src="assets/official-Google-Logo-PNG-Image.png" height="20px" style="padding-left: 41px; padding-right: 5px;">Continue with Google</button>
+              <button onclick="openModal4()"><img src="assets/pngegg (2).png" height="23px"width="23px" style="padding-left: 40px; padding-right: 4px;">Continue with Facebook</button>
+              <button onclick="openModal5()"><img src="assets\Apple.png" height="20px" style="padding-left: 40px; padding-right: 5px;">Continue with Apple</button>
+          </div>
+      </div>
+    </div>
+    <div id="loginModal3" class="modal">
+      <div class="modal-content">
+          <span class="close" onclick="closeModal3()">&times;</span>
+          <h2>Continue with Google</h2>
+          <input type="text" class="input-field" placeholder="Full Name">
+          <input type="email" class="input-field" placeholder="Email">
+          <input type="password" class="input-field" placeholder="Password">
+          <a href="Profile.html"><button class="btn">Join for Free</button></a>
+      </div>
+    </div><div id="loginModal4" class="modal">
+      <div class="modal-content">
+          <span class="close" onclick="closeModal4()">&times;</span>
+          <h2>Continue with Facebook</h2>
+          <input type="text" class="input-field" placeholder="Full Name">
+          <input type="email" class="input-field" placeholder="Email">
+          <input type="password" class="input-field" placeholder="Password">
+          <a href=""><button class="btn">Join for Free</button></a>
+      </div>
+    </div>
+    <div id="loginModal5" class="modal">
+      <div class="modal-content">
+          <span class="close" onclick="closeModal5()">&times;</span>
+          <h2>Continue with Apple</h2>
+          <input type="text" class="input-field" placeholder="Full Name">
+          <input type="email" class="input-field" placeholder="Email">
+          <input type="password" class="input-field" placeholder="Password">
+          <a href="Profile.html"><button class="btn">Join for Free</button></a>
+      </div>
+    </div>
+  </header>
+  <main class="home">
+      <section class="home1">
+          <div class="content1">
+              <p id="p1">Empower Your Learning & Skill Sharing with EduEx.</p>
+              <p id="p2">A one-stop platform for students to access resources, exchange skills, and grow together.</p>
+          </div>
+      
+          <section class="ctc">
+              <span>Experience the seamless learning</span>
+              <button onclick="openModal3()"><img src="assets/official-Google-Logo-PNG-Image.png" height="20px" style="padding-left: 41px; padding-right: 5px;">Continue with Google</button>
+              <button onclick="openModal4()"><img src="assets/pngegg (2).png" height="23px"width="23px" style="padding-left: 40px; padding-right: 4px;">Continue with Facebook</button>
+              <button onclick="openModal5()"><img src="assets\Apple.png" height="20px" style="padding-left: 40px; padding-right: 5px;">Continue with Apple</button>
+              <a href="Profile.html"><span>Continue with Email</span></a>
+          </section>
+      </section>
+  </main>
+  <main class="home2-slider">
+    <div class="slider">
+      <div class="slide-track">
+        <div class="slide">
+          <img src="assets/graphic_design.webp" alt="Graphic Design">
+          <div class="overlay-text">Graphic Design</div>
+        </div>
+        <div class="slide">
+          <img src="assets/productivity.webp" alt="Illustration">
+          <div class="overlay-text">Productivity</div>
+        </div>
+        <div class="slide">
+          <img src="assets/animation.webp" alt="Animation">
+          <div class="overlay-text">Animation</div>
+        </div>
+        <div class="slide">
+          <img src="assets/photography.webp" alt="Film & Video">
+          <div class="overlay-text">Film & Video</div>
+        </div>
+        <div class="slide">
+          <img src="assets/freelance.webp" alt="Freelance">
+          <div class="overlay-text">Freelance</div>
+        </div>
+        <div class="slide">
+          <img src="assets/marketing.webp" alt="UI/UX Design">
+          <div class="overlay-text">Marketing</div>
+        </div>
+    
+        <!-- Duplicate images for smooth looping -->
+        <div class="slide">
+          <img src="assets/graphic_design.webp" alt="Graphic Design">
+          <div class="overlay-text">Graphic Design</div>
+        </div>
+        <div class="slide">
+          <img src="assets/productivity.webp" alt="Illustration">
+          <div class="overlay-text">Productivity</div>
+        </div>
+        <div class="slide">
+          <img src="assets/animation.webp" alt="Animation">
+          <div class="overlay-text">Animation</div>
+        </div>
+        <div class="slide">
+          <img src="assets/photography.webp" alt="Film & Video">
+          <div class="overlay-text">Film & Video</div>
+        </div>
+        <div class="slide">
+          <img src="assets/freelance.webp" alt="Freelance">
+          <div class="overlay-text">Freelance</div>
+        </div>
+        <div class="slide">
+          <img src="assets/marketing.webp" alt="UI/UX Design">
+          <div class="overlay-text">Marketing</div>
+        </div>
+
+        <div class="slide">
+          <img src="assets/graphic_design.webp" alt="Graphic Design">
+          <div class="overlay-text">Graphic Design</div>
+        </div>
+        <div class="slide">
+          <img src="assets/productivity.webp" alt="Illustration">
+          <div class="overlay-text">Productivity</div>
+        </div>
+        <div class="slide">
+          <img src="assets/animation.webp" alt="Animation">
+          <div class="overlay-text">Animation</div>
+        </div>
+        <div class="slide">
+          <img src="assets/photography.webp" alt="Film & Video">
+          <div class="overlay-text">Film & Video</div>
+        </div>
+        <div class="slide">
+          <img src="assets/freelance.webp" alt="Freelance">
+          <div class="overlay-text">Freelance</div>
+        </div>
+        <div class="slide">
+          <img src="assets/marketing.webp" alt="UI/UX Design">
+          <div class="overlay-text">Marketing</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <main class="home3">    
+    <div class="home3-features">   
+      <section class="hero">
+        <h1>Creative Learning <br> Made Easy</h1>
+        <div class="features">
+          <p>✅ Thousands of skill-swap opportunities. Beginner to pro.</p>
+          <p>✅ Learn from peers and industry mentors.</p>
+          <p>✅ Resource Hub to support your learning journey.</p>
+          <p>✅ Certificates to showcase your achievements.</p>
+        </div>
+      </section>
+  
+      <section class="stats">
+        <div class="stat-box">
+          <p class="number">10K+</p>
+          <p class="label">Skill Trades</p>
+        </div>
+        <div class="stat-box">
+          <p class="number">50K+</p>
+          <p class="label">Members</p>
+        </div>
+        <div class="stat-box">
+          <p class="number">5K+</p>
+          <p class="label">Mentors</p>
+        </div>
+        <div class="stat-box">
+          <p class="number">4.9 ⭐</p>
+          <p class="label">Web Rating</p>
+        </div>
+      </section>
+    </div>
+    <div class="def">
+      <p id="def1">Start Learning</p>
+      <p id="def2">Popular Programs</p>
+    </div>
+    <div class="course-container">
+      <div class="course">
+        <img src="assets/freelance.webp" alt="Freelance">
+        <div class="course-info">
+          <h3>Freelance</h3>
+          <p>Learn HTML, CSS, JavaScript, and more.</p>
+        </div>
+      </div>
+      <div class="course">
+        <img src="assets/animation.webp" alt="Animation">
+        <div class="course-info">
+          <h3>Animation</h3>
+          <p>Explore Python, Machine Learning, and AI.</p>
+        </div>
+      </div>
+      <div class="course">
+        <img src="assets/Graphics_design.jpg" alt="Graphic Design">
+        <div class="course-info">
+          <h3>Graphic Design</h3>
+          <p>Master Photoshop, Illustrator, and UI/UX.</p>
+        </div>
+      </div>
+      <div class="course">
+        <img src="assets/Marketing.jpg" alt="Marketing">
+        <div class="course-info">
+          <h3>Marketing</h3>
+          <p>Learn HTML, CSS, JavaScript, and more.</p>
+        </div>
+      </div>
+      <div class="course">
+        <img src="assets/photography.webp" alt="Photography">
+        <div class="course-info">
+          <h3>Data Science</h3>
+          <p>Explore Python, Machine Learning, and AI.</p>
+        </div>
+      </div>
+      <div class="course">
+        <img src="assets/productivity.webp" alt="Productivity">
+        <div class="course-info">
+          <h3>Productivity</h3>
+          <p>Master Photoshop, Illustrator, and UI/UX.</p>
+        </div>
+      </div>
+      <div class="course">
+        <img src="assets/Finance.jpg" alt="Finance">
+        <div class="course-info">
+          <h3>Finance</h3>
+          <p>Explore Python, Machine Learning, and AI.</p>
+        </div>
+      </div>
+      <div class="course">
+        <img src="assets/Webdev.jpg" alt="Web Development">
+        <div class="course-info">
+          <h3>Web Development</h3>
+          <p>Master Photoshop, Illustrator, and UI/UX.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-container">
+        <div class="footer-top">
+            <div class="footer-column">
+                <h3>Creative Skills</h3>
+                <ul>
+                    <li><a href="#">Graphic Design</a></li>
+                    <li><a href="#">Illustration</a></li>
+                    <li><a href="#">Photography</a></li>
+                    <li><a href="#">Video Editing</a></li>
+                    <li><a href="#">More</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Technical Skills</h3>
+                <ul>
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">Data Science</a></li>
+                    <li><a href="#">Game Development</a></li>
+                    <li><a href="#">Programming</a></li>
+                    <li><a href="#">More</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Business & Marketing</h3>
+                <ul>
+                    <li><a href="#">Entrepreneurship</a></li>
+                    <li><a href="#">Freelancing</a></li>
+                    <li><a href="#">Marketing</a></li>
+                    <li><a href="#">Leadership</a></li>
+                    <li><a href="#">More</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Community</h3>
+                <ul>
+                    <li><a href="#">Team Plans</a></li>
+                    <li><a href="#">Gift Membership</a></li>
+                    <li><a href="#">Collaborations</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h3>Teaching</h3>
+                <ul>
+                    <li><a href="#">Become a Mentor</a></li>
+                    <li><a href="#">Resource Hub</a></li>
+                    <li><a href="#">Teaching Guidelines</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><img src="instagram.png">Instagram</a>
+                    <a href="#"><img src="linkedin.png">LinkedIn</a>
+                    <a href="#"><img src="twitter.png">Twitter</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright">
+            <p>© 2025 EduEx. All Rights Reserved.</p>
+            <div class="language-selector">
+                <select>
+                    <option>English</option>
+                    <option>Hindi</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</footer>  
+  <script src="javascript/script.js"></script> 
+</body>
+</html>

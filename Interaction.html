@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/Interaction.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <span style="color: white;">Edu</span>
+                <span style="color: #f7ac1b;">Ex</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="Profile.html">More Profiles</a></li>
+                <li><a href="Resource.html">Courses</a></li>
+                <li><a href="Resource.html">Explore</a></li>
+            </ul>
+            <div class="auth-profile">
+                <a href="" class="notification"><i class="fa-regular fa-bell" style="color: #ffffff;"></i></a>
+                <div class="auth-links">
+                    <a class="login-btn" href="Interaction.html"><i class="fa-solid fa-user fa-lg" style="color: #f7ac1b;"></i></a>
+                </div>
+            </div>
+            <div class="menu-toggle">☰</div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="sidebar">
+            <div class="header">Tutors</div>
+            <div class="chat-search">
+                <input type="text" placeholder="Search for tutors...">
+                <i class="fa-solid fa-search"></i>
+            </div>
+            <div class="chat-list">
+                <div class="chat-item">
+                    <div><img src="assets/SSD.jpg"></div>
+                    <div>
+                        <h4>Vicky</h4>
+                        <p>Web Developer</p>
+                    </div>
+                </div>
+                <div class="chat-item">
+                    <div>
+                        <img src="assets/SSD.jpg">
+                    </div>
+                    <div>
+                        <h4>Reena</h4>
+                        <p>Graphics Designer</p>
+                    </div>
+                </div>
+                <div class="chat-item">
+                    <div>
+                        <img src="assets/SSD.jpg">
+                    </div>
+                    <div>
+                        <h4>Saurabh</h4>
+                        <p>Video Editor</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chat-window">
+            <div class="chat-header"><img src="assets/SSD.jpg">Vicky</div>
+            <div class="chat-body" id="chat-body">
+                <div class="message received">Hello!</div>
+                <div class="message sent">Hi, what's today's session is about?</div>
+            </div>
+            <div class="chat-footer">
+                <i class="fa-solid fa-paperclip"></i>
+                <i class="fa-solid fa-microphone"></i>
+                <input type="text" id="message-input" placeholder="Type a message...">
+                <button onclick="sendMessage()"><i class="fa-solid fa-paper-plane" style="padding: 0px;"></i></button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function sendMessage() {
+            const input = document.getElementById("message-input");
+            const message = input.value.trim();
+            if (message) {
+                const chatBody = document.getElementById("chat-body");
+                const messageElement = document.createElement("div");
+                messageElement.classList.add("message", "sent");
+                messageElement.textContent = message;
+                chatBody.appendChild(messageElement);
+                input.value = "";
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }
+        }
+    </script>
+</body>
+</html>
+

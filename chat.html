@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Chatbot</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #1e1e2e; color: #ffffff; padding: 20px; }
+        .chatbox { width: 100%; max-width: 600px; margin: auto; background: #282a36; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); padding: 20px; }
+        .messages { height: 300px; overflow-y: auto; border: 1px solid #44475a; padding: 10px; border-radius: 5px; margin-bottom: 10px; background-color: #383a59; }
+        .message { margin: 10px 0; padding: 8px; border-radius: 5px; }
+        .user { background: #6272a4; color: #ffffff; align-self: flex-end; }
+        .bot { background: #50fa7b; color: #282a36; align-self: flex-start; }
+        .input-area { display: flex; }
+        .input-area input { flex: 1; padding: 10px; border: 1px solid #44475a; border-radius: 5px; background-color: #282a36; color: #ffffff; }
+        .input-area button { padding: 10px; margin-left: 10px; border: none; background-color: #ff79c6; color: white; border-radius: 5px; cursor: pointer; }
+        .typing { font-style: italic; color: #bd93f9; }
+    </style>
+</head>
+<body>
+    <div class="chatbox">
+        <h2 style="color: #ffb86c; text-align: center;">EduBot - Your Study Companion</h2>
+        <div class="messages" id="messages"></div>
+        <div class="input-area">
+            <input type="text" id="userInput" placeholder="Ask me anything about your studies...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const responses = {
+    // Greetings & Common Phrases
+    "hello": "Hi there! How can I assist you with your studies today?",
+    "hi": "Hello! What would you like to learn today?",
+    "byee": "Goodbye! Happy studying!",
+    "bye": "Goodbye! Keep learning and stay curious!",
+    "thnks": "You're welcome! Keep learning and keep coding!",
+    "thanks": "You're welcome! Let me know if you need more help.",
+
+    // Programming Basics
+    "varable": "A variable is a storage location identified by a name that holds data which can be changed during program execution.",
+    "variable": "A variable is a named memory location used to store data in a program.",
+    "functon": "A function is a block of code designed to perform a particular task, which can be reused in the program.",
+    "function": "A function is a reusable block of code that executes a specific task when called.",
+    "oop": "Object-Oriented Programming (OOP) is a programming paradigm that structures code using objects and classes.",
+
+    // Web Development
+    "html": "HTML (HyperText Markup Language) is the standard language for creating web pages.",
+    "css": "CSS (Cascading Style Sheets) is used to style and format web pages.",
+    "javscript": "JavaScript is a programming language used to make web pages interactive.",
+    "javascript": "JavaScript allows you to create dynamic and interactive web content.",
+    "framwork": "A framework provides a pre-built structure for developing applications. Examples include React, Angular, and Django.",
+    "framework": "A software framework provides reusable code and structure for building applications.",
+    "fullstack": "Full Stack Development covers both frontend and backend development, allowing a developer to work on all aspects of a web application.",
+    "full stack": "A full-stack developer works on both frontend (UI) and backend (server, database) development.",
+
+    // New Topics: UI/UX & Design
+    "ui": "User Interface (UI) design focuses on the layout and visuals of a digital product.",
+    "ux": "User Experience (UX) design aims to improve usability and accessibility for users.",
+    "wireframming": "Wireframing is creating a blueprint or visual guide of a webpage or app layout before development begins.",
+    "wireframing": "Wireframing helps designers create low-fidelity layouts for applications before development.",
+    "prototyping": "Prototyping involves creating an interactive mockup of a product to test its functionality.",
+
+    // Software Engineering & Debugging
+    "debuuging": "Debugging is the process of identifying and fixing errors in code to ensure proper functionality.",
+    "debugging": "Debugging helps programmers identify and resolve errors in their code.",
+    "compilor": "A compiler is a program that translates source code into machine code executable by a computer.",
+    "compiler": "A compiler converts human-readable code into machine code for execution.",
+    "sdlc": "The Software Development Lifecycle (SDLC) defines the steps to plan, develop, test, and deploy software applications.",
+
+    // Databases & APIs
+    "databse": "A database is a structured collection of data. Common databases include MySQL, MongoDB, and PostgreSQL.",
+    "database": "Databases store and organize data efficiently for retrieval and management.",
+    "apii": "An API (Application Programming Interface) allows different software applications to communicate with each other.",
+    "api": "An API acts as a bridge that allows software systems to interact and exchange data.",
+
+    // Cybersecurity & Ethical Hacking
+    "cyber security": "Cybersecurity involves protecting systems, networks, and programs from digital attacks.",
+    "cybersecurity": "Cybersecurity is the practice of defending digital systems from cyber threats.",
+    "ethicl hacking": "Ethical hacking involves testing a system's security to identify and fix vulnerabilities before malicious hackers can exploit them.",
+    "ethical hacking": "Ethical hackers, or 'white hat' hackers, legally test security systems to prevent cyber threats.",
+    
+    // Blockchain & Cryptocurrency
+    "blockchian": "Blockchain is a decentralized digital ledger that securely records transactions across multiple computers.",
+    "blockchain": "Blockchain technology ensures transparency and security in transactions, commonly used in cryptocurrencies.",
+    "crypto": "Cryptocurrency is a digital or virtual currency that uses cryptographic techniques for security.",
+    "bitcoin": "Bitcoin is the first decentralized cryptocurrency, allowing peer-to-peer transactions without a central authority.",
+
+    // Operating Systems
+    "operating system": "An Operating System (OS) manages computer hardware and software resources, such as Windows, Linux, and macOS.",
+    "linux": "Linux is an open-source operating system known for its stability and security.",
+    "windows": "Windows is a widely used operating system developed by Microsoft.",
+    "macos": "macOS is Apple's operating system designed for Mac computers.",
+    
+    // DevOps & Cloud Computing
+    "devops": "DevOps is a set of practices that combine software development and IT operations to improve efficiency.",
+    "cluod computing": "Cloud computing is the delivery of computing services over the internet, such as storage and processing power.",
+    "cloud computing": "Cloud computing provides on-demand access to computing resources via the internet.",
+    "docker": "Docker is a platform for developing, shipping, and running applications inside containers.",
+    "kubernetes": "Kubernetes is an open-source system for automating the deployment, scaling, and management of containerized applications.",
+
+    // Algorithms & Data Structures
+    "alogrithm": "An algorithm is a step-by-step procedure or formula for solving a problem.",
+    "algorithm": "An algorithm is a logical set of steps used to solve a problem or complete a task.",
+    "data strcture": "A data structure is a way of organizing and storing data so it can be accessed and modified efficiently.",
+    "data structure": "Data structures like arrays, linked lists, and trees help organize and store data efficiently.",
+    "recurssion": "Recursion is a programming technique where a function calls itself to solve smaller instances of a problem.",
+    "recursion": "Recursion allows a function to call itself in order to solve complex problems in a step-by-step manner.",
+
+    // Random Fun Facts
+    "random fact": "Did you know? The first computer bug was an actual moth found in a Harvard Mark II computer in 1947!",
+    "fact": "Did you know? The world's first website is still online at info.cern.ch!",
+
+    // Extra Study Tips
+    "study tip": "Try using active recall and spaced repetition to enhance your learning efficiency!",
+    "focus tips": "Eliminate distractions, set specific goals, and take short breaks to maintain focus.",
+    "productivity": "Using techniques like the Pomodoro method and time blocking can boost productivity!"
+};
+
+
+
+        function findResponse(input) {
+            input = input.toLowerCase().trim();
+            for (const key in responses) {
+                if (input.includes(key)) {
+                    return responses[key];
+                }
+            }
+            return "I'm not sure about that. Try asking something else!";
+        }
+
+        function sendMessage() {
+            const userInputField = document.getElementById('userInput');
+            const userInput = userInputField.value;
+            const messagesDiv = document.getElementById('messages');
+
+            if (userInput.trim() === '') return;
+
+            // Display user message
+            const userMessage = document.createElement('div');
+            userMessage.classList.add('message', 'user');
+            userMessage.textContent = `You: ${userInput}`;
+            messagesDiv.appendChild(userMessage);
+
+            // Show typing indicator
+            const typingMessage = document.createElement('div');
+            typingMessage.classList.add('message', 'bot', 'typing');
+            typingMessage.textContent = "EduBot is typing...";
+            messagesDiv.appendChild(typingMessage);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+            setTimeout(() => {
+                messagesDiv.removeChild(typingMessage);
+                
+                // Get bot response with keyword detection
+                const botResponse = findResponse(userInput);
+
+                const botMessage = document.createElement('div');
+                botMessage.classList.add('message', 'bot');
+                botMessage.textContent = `EduBot: ${botResponse}`;
+                messagesDiv.appendChild(botMessage);
+
+                // Clear input field and scroll to the bottom
+                userInputField.value = '';
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            }, 1000);
+        }
+
+        // Allow sending message with Enter key
+        document.getElementById('userInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>
