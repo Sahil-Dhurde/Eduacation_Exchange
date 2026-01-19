@@ -17,7 +17,7 @@ An online platform that connects students, teachers, and institutions to share e
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack ****
 
 -HTML
 -CSS
