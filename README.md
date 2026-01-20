@@ -16,7 +16,7 @@ An online platform that connects students, teachers, and institutions to share e
 - 🛡️ Secure Data Handling
 
 ---
-
+......................
 ## 🛠️ Tech Stack ****
 
 -HTML
